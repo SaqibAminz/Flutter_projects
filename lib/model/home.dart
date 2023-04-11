@@ -32,6 +32,35 @@ class _HomeScreenState extends State<HomeScreen> {
         centerTitle: true,
         elevation: 0,
         backgroundColor: Colors.green.shade400,
+        actions: [
+          PopupMenuButton(
+              // add icon, by default "3 dot" icon
+              // icon: Icon(Icons.book)
+              itemBuilder: (context) {
+            return [
+              const PopupMenuItem<int>(
+                value: 0,
+                child: Text("My Account"),
+              ),
+              const PopupMenuItem<int>(
+                value: 1,
+                child: Text("Settings"),
+              ),
+              const PopupMenuItem<int>(
+                value: 2,
+                child: Text("Logout"),
+              ),
+            ];
+          }, onSelected: (value) {
+            if (value == 0) {
+              Navigator.pushReplacementNamed(context, '/ninjaCard');
+            } else if (value == 1) {
+              Navigator.pushReplacementNamed(context, '/instaImg');
+            } else if (value == 2) {
+              exit(0);
+            }
+          }),
+        ],
       ),
       drawer: const my_Drawer(),
       backgroundColor: Colors.yellow.shade800,
@@ -75,7 +104,7 @@ class _HomeScreenState extends State<HomeScreen> {
           ],
         ),
       ),
-      bottomNavigationBar: const BottomNav(),
+      bottomNavigationBar: BottomNav(selectImage: selectImage,),
     );
   }
 

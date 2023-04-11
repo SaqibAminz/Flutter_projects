@@ -32,8 +32,7 @@ class NinjaCard extends StatelessWidget {
             const Center(
               child: CircleAvatar(
                 radius: 40.0,
-                backgroundImage: NetworkImage(
-                    'https://cdn-icons-png.flaticon.com/512/2202/2202112.png'),
+                backgroundImage: AssetImage('assets/images/man.png'),
               ),
             ),
             Divider(

@@ -1,15 +1,25 @@
 import 'package:flutter/material.dart';
-import 'home.dart';
 
 class BottomNav extends StatefulWidget {
-  const BottomNav({super.key});
+  Function? selectImage;
+  BottomNav({Key? key, this.selectImage}) : super(key: key);
 
   @override
-  State<BottomNav> createState() => _BottomNavState();
+  State<BottomNav> createState() => _BottomNavState(selectImage: selectImage);
 }
 
 class _BottomNavState extends State<BottomNav> {
   int _selectedIndex = 0;
+  Function? selectImage;
+  _BottomNavState({this.selectImage});
+
+  @override
+  void initState() {
+    super.initState();
+    if (selectImage != null) {
+      selectImage!();
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -54,7 +64,7 @@ class _BottomNavState extends State<BottomNav> {
                 Navigator.pushReplacementNamed(context, '/about_us');
               }
               if (index == 2) {
-                // selectImage();
+                selectImage;
               }
             },
           );

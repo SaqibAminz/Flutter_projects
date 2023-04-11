@@ -30,7 +30,7 @@ class AboutUs extends StatelessWidget {
         backgroundColor: Colors.green.shade400,
       ),
       body: Container(
-          padding: const EdgeInsets.fromLTRB(3, 0, 0, 0),
+          padding: const EdgeInsets.fromLTRB(10, 0, 0, 0),
           height: double.infinity,
           width: double.infinity,
           alignment: Alignment.topLeft,
