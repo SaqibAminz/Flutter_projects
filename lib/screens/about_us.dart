@@ -1,5 +1,5 @@
-import 'package:flutter/services.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 class AboutUs extends StatelessWidget {
   const AboutUs({super.key});
@@ -9,7 +9,7 @@ class AboutUs extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         systemOverlayStyle: const SystemUiOverlayStyle(
-          statusBarColor: Color.fromRGBO(102, 187, 106, 1),
+          statusBarColor: Colors.blue,
         ),
         title: const Text(
           'Image Picker',
@@ -27,14 +27,14 @@ class AboutUs extends StatelessWidget {
             icon: const Icon(Icons.arrow_back)),
         centerTitle: true,
         elevation: 0,
-        backgroundColor: Colors.green.shade400,
+        backgroundColor: Colors.blue.shade400,
       ),
       body: Container(
           padding: const EdgeInsets.fromLTRB(10, 0, 0, 0),
           height: double.infinity,
           width: double.infinity,
           alignment: Alignment.topLeft,
-          color: Colors.yellow[800],
+          color: Colors.white,
           child: RichText(
             text: const TextSpan(
               style: TextStyle(

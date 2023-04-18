@@ -1,24 +1,21 @@
 import 'package:flutter/material.dart';
 
 class BottomNav extends StatefulWidget {
-  Function? selectImage;
-  BottomNav({Key? key, this.selectImage}) : super(key: key);
+  const BottomNav({
+    Key? key,
+  }) : super(key: key);
 
   @override
-  State<BottomNav> createState() => _BottomNavState(selectImage: selectImage);
+  State<BottomNav> createState() => _BottomNavState();
 }
 
 class _BottomNavState extends State<BottomNav> {
   int _selectedIndex = 0;
-  Function? selectImage;
-  _BottomNavState({this.selectImage});
+  _BottomNavState();
 
   @override
   void initState() {
     super.initState();
-    if (selectImage != null) {
-      selectImage!();
-    }
   }
 
   @override
@@ -28,31 +25,28 @@ class _BottomNavState extends State<BottomNav> {
           BottomNavigationBarItem(
             icon: const Icon(Icons.home),
             label: 'Home',
-            backgroundColor: Colors.green[400],
+            backgroundColor: Colors.blue[400],
           ),
-          BottomNavigationBarItem(
-            icon: const Icon(Icons.person_2),
+          const BottomNavigationBarItem(
+            icon: Icon(Icons.person_2),
             label: 'Profile',
-            backgroundColor: Colors.green[400],
           ),
-          BottomNavigationBarItem(
-            icon: const Icon(Icons.image),
-            label: 'Gallery',
-            backgroundColor: Colors.green[400],
+          const BottomNavigationBarItem(
+            icon: Icon(Icons.fact_check_outlined),
+            label: 'Todos',
           ),
-          BottomNavigationBarItem(
-            icon: const Icon(Icons.camera_alt),
-            label: 'Camera',
-            backgroundColor: Colors.green[400],
+          const BottomNavigationBarItem(
+            icon: Icon(Icons.done),
+            label: 'Completed',
           ),
-          BottomNavigationBarItem(
-            icon: const Icon(Icons.info_rounded),
+          const BottomNavigationBarItem(
+            icon: Icon(Icons.info_rounded),
             label: 'About',
-            backgroundColor: Colors.green[400],
           ),
         ],
         currentIndex: _selectedIndex,
-        selectedItemColor: Colors.yellow[800],
+        selectedItemColor: Colors.white,
+        unselectedItemColor: Colors.white70,
         onTap: (int index) {
           setState(
             () {
@@ -63,17 +57,12 @@ class _BottomNavState extends State<BottomNav> {
               if (index == 4) {
                 Navigator.pushReplacementNamed(context, '/about_us');
               }
-              if (index == 2) {
-                selectImage;
+              if (index == 2) {}
+              if (index == 3) {
+                // const CompletedListWidget();
               }
             },
           );
         });
-
-    // void _onItemTapped(int index) {
-    //   setState(() {
-    //     _selectedIndex = index;
-    //   });
-    // }
   }
 }

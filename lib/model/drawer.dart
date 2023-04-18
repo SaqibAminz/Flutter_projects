@@ -69,7 +69,7 @@ class _my_DrawerState extends State<my_Drawer> {
               onTap: () {
                 Navigator.pushReplacementNamed(context, '/ninjaCard');
               },
-              tileColor: Colors.green.shade100,
+              tileColor: Colors.blue.shade100,
             ),
           ),
           Container(
@@ -88,7 +88,7 @@ class _my_DrawerState extends State<my_Drawer> {
               onTap: () {
                 Navigator.pop(context);
               },
-              tileColor: Colors.green.shade100,
+              tileColor: Colors.blue.shade100,
             ),
           ),
           Container(
@@ -107,7 +107,7 @@ class _my_DrawerState extends State<my_Drawer> {
               onTap: () {
                 Navigator.pop(context);
               },
-              tileColor: Colors.green.shade100,
+              tileColor: Colors.blue.shade100,
             ),
           ),
           Container(
@@ -126,7 +126,7 @@ class _my_DrawerState extends State<my_Drawer> {
               onTap: () {
                 Navigator.pushReplacementNamed(context, '/instaImg');
               },
-              tileColor: Colors.green.shade100,
+              tileColor: Colors.blue.shade100,
             ),
           ),
           Container(
@@ -145,7 +145,7 @@ class _my_DrawerState extends State<my_Drawer> {
               onTap: () {
                 Navigator.pushReplacementNamed(context, '/about_us');
               },
-              tileColor: Colors.green.shade100,
+              tileColor: Colors.blue.shade100,
             ),
           ),
           Container(
@@ -164,7 +164,7 @@ class _my_DrawerState extends State<my_Drawer> {
               onTap: () {
                 exit(0);
               },
-              tileColor: Colors.green.shade100,
+              tileColor: Colors.blue.shade100,
             ),
           ),
         ],

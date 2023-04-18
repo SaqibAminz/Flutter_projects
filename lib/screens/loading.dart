@@ -13,7 +13,7 @@ class _LoadingScreenState extends State<LoadingScreen> {
   @override
   void initState() {
     super.initState();
-    Future.delayed(const Duration(seconds: 3)).then((value) {
+    Future.delayed(const Duration(seconds: 10)).then((value) {
       Navigator.pushReplacement(
         context,
         MaterialPageRoute(
@@ -25,7 +25,7 @@ class _LoadingScreenState extends State<LoadingScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.yellow.shade800,
+      backgroundColor: Colors.blue.shade700,
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: const [
@@ -50,7 +50,7 @@ class _LoadingScreenState extends State<LoadingScreen> {
             height: 200,
           ),
           SpinKitSpinningLines(
-            color: Colors.green,
+            color: Color.fromARGB(255, 82, 177, 255),
             size: 50.0,
           ),
         ],

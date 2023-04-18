@@ -10,7 +10,7 @@ class NinjaCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.green[200],
+      backgroundColor: Colors.white,
       appBar: AppBar(
         title: const Text('Profile'),
         leading: IconButton(
@@ -21,7 +21,7 @@ class NinjaCard extends StatelessWidget {
             },
             icon: const Icon(Icons.arrow_back)),
         centerTitle: true,
-        backgroundColor: Colors.green[500],
+        backgroundColor: Colors.blue[500],
         elevation: 0.0,
       ),
       body: Padding(
@@ -36,7 +36,7 @@ class NinjaCard extends StatelessWidget {
               ),
             ),
             Divider(
-              color: Colors.grey[800],
+              color: Colors.grey[900],
               height: 60.0,
             ),
             const Text(
@@ -52,7 +52,7 @@ class NinjaCard extends StatelessWidget {
             const Text(
               'Saqib Amin',
               style: TextStyle(
-                color: Color.fromRGBO(255, 215, 69, 1),
+                color: Color.fromARGB(255, 53, 53, 53),
                 fontWeight: FontWeight.bold,
                 fontSize: 28.0,
                 letterSpacing: 2.0,
@@ -64,17 +64,17 @@ class NinjaCard extends StatelessWidget {
               style: TextStyle(
                 fontSize: 15,
                 fontWeight: FontWeight.bold,
-                color: Color.fromARGB(255, 0, 0, 0),
+                color: Colors.black,
                 letterSpacing: 2.0,
               ),
             ),
             const SizedBox(height: 10.0),
-            Text(
+            const Text(
               'Pakistan, Lahore',
               style: TextStyle(
-                color: Colors.amberAccent[200],
+                color: Color.fromARGB(255, 53, 53, 53),
                 fontWeight: FontWeight.bold,
-                fontSize: 28.0,
+                fontSize: 22.0,
                 letterSpacing: 2.0,
               ),
             ),
@@ -89,10 +89,10 @@ class NinjaCard extends StatelessWidget {
               ),
             ),
             const SizedBox(height: 10.0),
-            Text(
+            const Text(
               '8',
               style: TextStyle(
-                color: Colors.amberAccent[200],
+                color: Color.fromARGB(255, 53, 53, 53),
                 fontWeight: FontWeight.bold,
                 fontSize: 28.0,
                 letterSpacing: 2.0,

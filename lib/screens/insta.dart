@@ -14,7 +14,7 @@ class _InstaImgState extends State<InstaImg> {
     return Scaffold(
       appBar: AppBar(
         systemOverlayStyle: const SystemUiOverlayStyle(
-          statusBarColor: Color.fromRGBO(102, 187, 106, 1),
+          statusBarColor: Colors.blue,
         ),
         title: const Text(
           'Image Picker',
@@ -32,12 +32,12 @@ class _InstaImgState extends State<InstaImg> {
             icon: const Icon(Icons.arrow_back)),
         centerTitle: true,
         elevation: 0,
-        backgroundColor: Colors.green.shade400,
+        backgroundColor: Colors.blue.shade400,
       ),
       body: Container(
         height: double.infinity,
         width: double.infinity,
-        color: Colors.yellow[800],
+        color: Colors.white,
         child: const Center(
           child: Image(
             height: 200,
