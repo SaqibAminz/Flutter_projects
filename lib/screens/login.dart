@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/gestures.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
@@ -9,13 +10,16 @@ class LoginScreen extends StatefulWidget {
 
 class _LoginScreenState extends State<LoginScreen> {
   final _formKey = GlobalKey<FormState>();
+  TextEditingController email = TextEditingController();
+  TextEditingController password = TextEditingController();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
+      resizeToAvoidBottomInset: false,
       body: Center(
         child: Padding(
-          padding: const EdgeInsets.all(8.0),
+          padding: const EdgeInsets.all(15.0),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
@@ -49,36 +53,84 @@ class _LoginScreenState extends State<LoginScreen> {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           TextFormField(
-                              decoration: const InputDecoration(
-                            prefixIcon: Icon(Icons.person),
-                            hintText: 'Username or Gmail',
-                            border: OutlineInputBorder(
-                              borderRadius:
-                                  BorderRadius.all(Radius.circular(15)),
+                            controller: email,
+                            decoration: const InputDecoration(
+                              prefixIcon: Icon(Icons.person),
+                              hintText: 'Username or Gmail',
+                              border: OutlineInputBorder(
+                                borderRadius:
+                                    BorderRadius.all(Radius.circular(15)),
+                              ),
                             ),
-                          )),
+                            validator: (value) {
+                              if (value!.isEmpty ||
+                                  !value.endsWith('@gmail.com')) {
+                                return 'please enter valid emial';
+                              } else {
+                                return null;
+                              }
+                            },
+                          ),
                           const SizedBox(
                             height: 10,
                           ),
                           TextFormField(
-                              decoration: const InputDecoration(
-                            prefixIcon: Icon(Icons.person),
-                            hintText: 'Password',
-                            border: OutlineInputBorder(
-                              borderRadius:
-                                  BorderRadius.all(Radius.circular(15)),
+                            decoration: const InputDecoration(
+                              prefixIcon: Icon(Icons.key_rounded),
+                              hintText: 'Password',
+                              border: OutlineInputBorder(
+                                borderRadius:
+                                    BorderRadius.all(Radius.circular(15)),
+                              ),
                             ),
-                          )),
+                            validator: (value) {
+                              if (value!.isEmpty ||
+                                  !RegExp(r'^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#\$%^&*(),.?":{}|<>]).{8,}$')
+                                      .hasMatch(value)) {
+                                return 'Password must contain at least one uppercase letter, one lowercase letter, one digit, and one special character';
+                              } else {
+                                return null;
+                              }
+                            },
+                            
+                          ),
+                          Container(
+                            alignment: Alignment.centerRight,
+                            child: TextButton(
+                                onPressed: () {
+                                  setState(() {
+                                    Navigator.pushReplacementNamed(
+                                        context, '/forgotpass');
+                                  });
+                                },
+                                child: const Text(
+                                  "Forgot Password?",
+                                  style: TextStyle(color: Colors.blueAccent),
+                                )),
+                          ),
                           const SizedBox(
-                            height: 20,
+                            height: 5,
                           ),
                           Center(
                             child: Container(
-                              padding: const EdgeInsets.all(8),
+                              height: 40,
+                              width: 225,
+                              decoration: const BoxDecoration(
+                                color: Colors.blue,
+                              ),
                               child: ElevatedButton.icon(
-                                  onPressed: () {},
+                                  onPressed: () {
+                                    if (_formKey.currentState!.validate()) {
+                                      const SnackBar(content: Text('Loged In'));
+                                      Navigator.pushReplacementNamed(
+                                          context, '/home');
+                                    }
+                                  },
                                   icon: const Icon(Icons.arrow_circle_right),
-                                  label: const Text('Login')),
+                                  label: const Text(
+                                    'Login',
+                                    style: TextStyle(fontSize: 18),
+                                  )),
                             ),
                           ),
                           const SizedBox(
@@ -98,7 +150,7 @@ class _LoginScreenState extends State<LoginScreen> {
                                     backgroundColor: Colors.white),
                               ),
                               const SizedBox(
-                                width: 10,
+                                width: 15,
                               ),
                               ElevatedButton.icon(
                                 icon: Image.asset('assets/images/facebook.png'),
@@ -112,6 +164,30 @@ class _LoginScreenState extends State<LoginScreen> {
                               ),
                             ],
                           ),
+                          const SizedBox(
+                            height: 40,
+                          ),
+                          Center(
+                            child: RichText(
+                                text: TextSpan(
+                              text: 'If you don\'t have an account ',
+                              style: const TextStyle(color: Colors.black),
+                              children: [
+                                TextSpan(
+                                  text: 'Sign In',
+                                  style: const TextStyle(
+                                    color: Colors.blue,
+                                    decoration: TextDecoration.underline,
+                                  ),
+                                  recognizer: TapGestureRecognizer()
+                                    ..onTap = () {
+                                      Navigator.pushReplacementNamed(
+                                          context, '/signin');
+                                    },
+                                ),
+                              ],
+                            )),
+                          )
                         ],
                       ))
                 ],

@@ -1,4 +1,3 @@
-import 'dart:io';
 import 'package:test_application1/model/drawer.dart';
 import 'package:flutter/material.dart';
 import 'package:test_application1/main.dart';
@@ -23,15 +22,15 @@ class _HomeScreen extends State<HomeScreen> {
   Widget build(BuildContext context) {
     final tabs = [
       const HomePage(),
-      const NinjaCard(),
       const TodoListWidget(),
       const CompletedListWidget(),
+      const NinjaCard(),
       const AboutUs(),
     ];
     return Scaffold(
       appBar: selectedIndex == 0 ||
-              selectedIndex == 2 ||
-              selectedIndex == 3 // Show FAB only for TodoListWidget
+              selectedIndex == 1 ||
+              selectedIndex == 2 // Show FAB only for TodoListWidget
           ? AppBar(
               title: const Text(MyApp.title),
               actions: [
@@ -59,7 +58,7 @@ class _HomeScreen extends State<HomeScreen> {
                   } else if (value == 1) {
                     Navigator.pushReplacementNamed(context, '/instaImg');
                   } else if (value == 2) {
-                    exit(0);
+                    Navigator.pushReplacementNamed(context, '/login');
                   }
                 }),
               ],
@@ -82,17 +81,17 @@ class _HomeScreen extends State<HomeScreen> {
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.person),
-            label: 'Profile',
+            label: 'Todos',
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.fact_check_outlined),
-            label: 'Todos',
+            label: 'Completed',
           ),
           BottomNavigationBarItem(
             icon: Icon(
               Icons.done,
             ),
-            label: 'Completed',
+            label: 'Profile',
           ),
           BottomNavigationBarItem(
             icon: Icon(
@@ -104,7 +103,7 @@ class _HomeScreen extends State<HomeScreen> {
       ),
       body: tabs[selectedIndex],
       floatingActionButton:
-          selectedIndex == 2 // Show FAB only for TodoListWidget
+          selectedIndex == 1 // Show FAB only for TodoListWidget
               ? FloatingActionButton(
                   shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(20)),

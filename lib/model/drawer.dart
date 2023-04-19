@@ -1,5 +1,3 @@
-import 'dart:io';
-
 import 'package:flutter/material.dart';
 
 class my_Drawer extends StatefulWidget {
@@ -162,7 +160,7 @@ class _my_DrawerState extends State<my_Drawer> {
                 style: myStyle,
               ),
               onTap: () {
-                exit(0);
+                Navigator.pushReplacementNamed(context, '/login');
               },
               tileColor: Colors.blue.shade100,
             ),

@@ -29,15 +29,15 @@ class _BottomNavState extends State<BottomNav> {
           ),
           const BottomNavigationBarItem(
             icon: Icon(Icons.person_2),
-            label: 'Profile',
-          ),
-          const BottomNavigationBarItem(
-            icon: Icon(Icons.fact_check_outlined),
             label: 'Todos',
           ),
           const BottomNavigationBarItem(
-            icon: Icon(Icons.done),
+            icon: Icon(Icons.fact_check_outlined),
             label: 'Completed',
+          ),
+          const BottomNavigationBarItem(
+            icon: Icon(Icons.done),
+            label: 'Profile',
           ),
           const BottomNavigationBarItem(
             icon: Icon(Icons.info_rounded),
@@ -51,7 +51,7 @@ class _BottomNavState extends State<BottomNav> {
           setState(
             () {
               _selectedIndex = index;
-              if (index == 1) {
+              if (index == 3) {
                 Navigator.pushReplacementNamed(context, '/ninjaCard');
               }
               if (index == 4) {

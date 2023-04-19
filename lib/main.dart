@@ -1,6 +1,7 @@
 // import 'package:flutter/material.dart';
 // import 'package:test_application1/model/home.dart';
 import 'package:test_application1/screens/loading.dart';
+import 'package:test_application1/screens/login.dart';
 import 'package:test_application1/screens/profile.dart';
 import 'package:test_application1/screens/about_us.dart';
 import 'package:test_application1/screens/insta.dart';
@@ -22,6 +23,8 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:test_application1/model/home.dart';
 import 'package:test_application1/provider/todos.dart';
+import 'package:test_application1/screens/signin.dart';
+import 'package:test_application1/screens/forgot_pass.dart';
 
 void main() => runApp(const MyApp());
 
@@ -44,6 +47,9 @@ class MyApp extends StatelessWidget {
             '/ninjaCard': (context) => const NinjaCard(),
             '/about_us': (context) => const AboutUs(),
             '/instaImg': (context) => const InstaImg(),
+            '/login': (context) => const LoginScreen(),
+            '/signin': (context) => const SigningIn(),
+            '/forgotpass': (context) => const FogetPass(),
           },
           title: title,
           theme: ThemeData(
